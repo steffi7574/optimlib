@@ -4,6 +4,7 @@ UserFunction::UserFunction(){}
 
 UserFunction::~UserFunction(){}
 
+void UserFunction::callMeOncePerIter(){}
 
 Optimizer::Optimizer()
 {
@@ -18,6 +19,8 @@ Optimizer::~Optimizer(){}
 
 void Optimizer::initialize(UserFunction  *Function,
                            HessianApprox *Hessian, 
+                           MyReal        *design_ptr,
+                           MyReal        *gradient_ptr,
                            int            DimN,
                            int            maxIter)
 {

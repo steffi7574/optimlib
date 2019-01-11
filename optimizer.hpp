@@ -23,6 +23,8 @@ class UserFunction
 
       /* Compute the gradient \nabla f(x) and return it's norm */
       virtual MyReal evaluateGradient(MyReal* x, MyReal* gradient)  = 0;
+
+      virtual void callMeOncePerIter();
 };
 
 
@@ -34,8 +36,10 @@ class UserFunction
 class Optimizer 
 {
    private:
-      MyReal objective;             /* Objective function value */
-      MyReal gnorm;                 /* Norm of the gradient */
+      MyReal  objective;             /* Objective function value */
+      MyReal  gnorm;                 /* Norm of the gradient */
+      MyReal* design;                /* Pointer to the design variable */
+      MyReal* gradient;              /* Pointer to the gradient variable */
 
    protected:
 
@@ -52,6 +56,8 @@ class Optimizer
 
       void initialize(UserFunction  *Function,
                       HessianApprox *Hessian, 
+                      MyReal        *design_ptr,
+                      MyReal        *gradient_ptr,
                       int            DimN,
                       int            maxIter);
 
