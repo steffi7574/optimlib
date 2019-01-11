@@ -35,6 +35,8 @@ void Optimizer::run()
    {
       /* evaluate objective */
 
+       /* now I'm changing something! */
+
       /* evaluate gradient and its norm */
 
       /* Output */
