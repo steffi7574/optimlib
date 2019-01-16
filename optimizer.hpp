@@ -18,12 +18,16 @@ class UserFunction
       UserFunction();
       ~UserFunction();
 
+      /* Pass a pointer to the design to the optimizer */
+      virtual void setDesign(int size_design, MyReal* design_ptr) = 0;
+
       /* Reaturn the objective function value f(x) */
       virtual MyReal evaluateObjective(MyReal* x) = 0;  
 
       /* Compute the gradient \nabla f(x) and return it's norm */
       virtual MyReal evaluateGradient(MyReal* x, MyReal* gradient)  = 0;
 
+      /* Optional */
       virtual void callMeOncePerIter();
 };
 
